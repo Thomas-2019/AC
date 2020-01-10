@@ -1,0 +1,495 @@
+// @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i,500,500i,700,700i");
+
+//color
+$nav-color: #2d3436;
+$bg-color: #636e72;
+$fz-color-dark: #000;
+$fz-color-light: #dfe6e9;
+//fz
+$fz: 18px;
+
+//mixin
+@mixin clearfix() {
+  *zoom: 1;
+
+  &:after {
+    display: block;
+    content: "";
+    line-height: 0;
+    clear: both;
+  }
+}
+
+%outline {
+  outline: 1px solid red;
+}
+//reset--------------------------------------
+html,
+body {
+  width: 100%;
+  height: 100%;
+  // font-family: "Roboto Mono", monospace;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a,
+a:hover,
+a:focus {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+//----------------------------------
+.row-items {
+  margin: 0 auto;
+}
+.container {
+  width: 85%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.bg-color {
+  background-color: lighten($bg-color, 50%);
+}
+section {
+  padding: 100px 0;
+}
+.bg-img {
+  background-image: url("https://picsum.photos/1200/1200/?=3");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+h2 {
+  line-height: 40px;
+  font-style: italic;
+  text-align: center;
+  font-size: $fz * 2;
+  color: $fz-color-dark;
+  letter-spacing: 3px;
+  position: relative;
+  margin-bottom: 100px;
+}
+h3 {
+  font-size: $fz * 1.5;
+  line-height: 30px;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+h4 {
+  text-transform: uppercase;
+  font-size: $fz;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+.year {
+  display: inline-block;
+  font-size: $fz;
+  line-height: 20px;
+  margin-bottom: 5px;
+  color: #fff;
+  background-color: #000;
+}
+p {
+  padding: 10px 0;
+}
+.btn {
+  margin: auto;
+  margin-top: 15px;
+  font-size: $fz;
+  display: block;
+  width: 200px;
+  background-color: #fff;
+  // height: 30px;
+  border-radius: 30px;
+  // line-height: 30px;
+  color: $nav-color;
+  text-align: center;
+  transition: 0.5s;
+  border: 1px solid $nav-color;
+  &:hover {
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #fff;
+  }
+}
+//@media screen-------------------------
+.lg-100 {
+  width: 100%;
+  padding: 0 20px;
+}
+.md-50 {
+  width: 50%;
+  padding: 0 15px;
+}
+.sm-33 {
+  width: 33.3%;
+  padding: 10px;
+}
+.ms-25 {
+  width: 25%;
+  padding: 0 5px;
+}
+
+.icon {
+  a {
+    display: inline-block;
+    color: $fz-color-light;
+    font-size: $fz;
+    line-height: 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    margin-right: 15px;
+  }
+}
+//---------------------------
+
+// header {
+//   left: 0;
+//   right: 0;
+//   background-color: $nav-color;
+//   width: 100%;
+//   position: fixed;
+//   z-index: 999;
+//   nav {
+//     height: 60px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     text-align: center;
+//   }
+//   .logo {
+//     width: 80px;
+//     height: 40px;
+//     // @extend %outline;
+//     line-height: 40px;
+//   }
+//   ul {
+//     font-size: 0;
+//   }
+//   li {
+//     display: inline-block;
+//     margin-right: 15px;
+//   }
+//   a {
+//     display: block;
+//     text-decoration: none;
+//     font-size: $fz;
+//     color: $fz-color-light;
+//     // @extend %outline;
+//   }
+// }
+
+header {
+  height: 80px;
+  left: 0;
+  right: 0;
+  background-color: $nav-color;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  clear: both;
+  .menu-button {
+    float: right;
+    font-size: $fz * 2;
+    line-height: 80px;
+    color: $fz-color-light;
+    background: transparent;
+    border: 0;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+  .menu-button-checkbox {
+    position: absolute;
+    top: calc(80px - 40px - 20px);
+    right: 0;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    z-index: 50;
+    @media screen and (min-width: 768px) {
+      z-index: 0;
+    }
+    &:checked ~ nav .nav {
+      display: block;
+    }
+  }
+  nav {
+    position: relative;
+  }
+  #logo {
+    position: absolute;
+    top: calc(80px - 40px - 20px);
+    width: 80px;
+    height: 40px;
+    margin-left: 10px;
+    z-index: 50;
+  }
+
+  .nav {
+    text-align: center;
+    display: none;
+    position: fixed;
+    z-index: 10;
+    background-color: $fz-color-light;
+    top: 80px;
+    width: 100%;
+    @media screen and (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      top: 0;
+      line-height: 80px;
+      background-color: none;
+    }
+    li {
+      a {
+        margin-top: 10px;
+        transition: 0.5s;
+        &:hover {
+          background-color: #fff;
+        }
+        display: inline-block;
+        font-size: $fz;
+        color: $fz-color-dark;
+        @media screen and (min-width: 768px) {
+          margin: 0 20px 0 0;
+        }
+      }
+    }
+  }
+}
+
+// banner-img
+.banner-img {
+  height: 100vh;
+  background-image: url("https://picsum.photos/1200/1200/?=9");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+#home {
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .row-items {
+    position: relative;
+    padding: 60px;
+    top: 200px;
+    
+  }
+  h1 {
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    color: $fz-color-light;
+    font-size: $fz * 2.5;
+    line-height: 50px;
+    margin-bottom: 50px;
+  }
+}
+#sever {
+  .img {
+    width: 20%;
+  }
+  .row-items {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .item {
+      @media screen and (min-width: 768px) {
+        flex-basis: 33.3%;
+        padding: 0 10px;
+      }
+    }
+  }
+}
+#about {
+  .row-items {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .item {
+      @media screen and (min-width: 768px) {
+        flex-basis: 50%;
+        padding: 0 10px;
+      }
+    }
+  }
+}
+#portolio {
+  .row-items {
+    position: relative;
+    // @extend %outline;
+    @include clearfix();
+    border-bottom: 1px solid #000;
+    height: 100%;
+    padding: 30px 0;
+    @media screen and (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .item {
+      @media screen and (min-width: 768px) {
+        padding: 0 10px;
+        flex-basis: 50%;
+      }
+    }
+  }
+
+  .row-items {
+    &:last-child {
+      border: none;
+    }
+  }
+}
+#lateest-work {
+  .row-items {
+    text-align: center;
+    @include clearfix();
+    @media screen and (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .item {
+      @media screen and (min-width: 768px) {
+        padding: 0 10px;
+        flex-basis: 50%;
+      }
+    }
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+  a {
+    display: inline-block;
+    transition: 0.5s;
+    &:hover {
+      box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+#contact {
+  background-color: white;
+  .row-items {
+    @include clearfix();
+    background-color: white;
+    text-align: center;
+  }
+  .items {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+    .inp-style {
+      @media screen and (min-width: 768px) {
+        flex-basis: 45%;
+      }
+    }
+  }
+  .inp-style {
+    font-size: $fz;
+    line-height: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $fz-color-light;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    transition: 0.5s;
+    &:hover {
+      border-bottom: 1px solid $nav-color;
+    }
+  }
+  textarea {
+    font-size: $fz;
+    line-height: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $fz-color-light;
+    outline: none;
+    transition: 0.5s;
+    &:hover {
+      border-bottom: 1px solid $nav-color;
+    }
+  }
+}
+footer {
+  background-color: $nav-color;
+  padding: 30px 10px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  p {
+    color: $fz-color-light;
+    font-size: $fz;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+  a {
+    max-width: none;
+  }
+}
